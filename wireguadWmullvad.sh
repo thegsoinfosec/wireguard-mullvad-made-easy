@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# How to Install Mullvad with WireGuard on Debian 10 LINUX
+# How to Install Mullvad with WireGuard on Debian 10 
 # First install the Debian dependency pkgs for WireGuard 
  git clone https://salsa.debian.org/debian/wireguard-linux-compat.git
 
@@ -10,15 +10,18 @@ printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' | sudo tee /etc
 apt update
 apt install wireguard
    
-wget --content-disposition https://mullvad.net/download/deb/latest
+#Then download and install Mullvad   
+wget https://mullvad.net/media/app/MullvadVPN-2020.5_amd64.deb
 sudo apt-get -y install gdebi-core && sudo gdebi MullvadVPN-2020.5_amd64.deb
 
 # Install WireGuard Network interface device
 ip link add dev wg0 type wireguard
+echo "Example: 192.168.2.1/24"
 echo "assingn an IP including the range for wg0 : "
 read  IP
 ip address add dev wg0 $IP
 
+#Start Mullvad
 mullvad
 
 
