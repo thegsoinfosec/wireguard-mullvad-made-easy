@@ -25,6 +25,6 @@ ip address add dev wg0 $IP
 mullvad
 
 
-# Then, in the GUI app
-# regenrate keys for wireguard
-# and set wireguard as preferred tunnel protocol
+# You can now open the Mullvad desktop app
+# Set wireguard as preferred tunnel protocol
+# & generate keys for Wireguard
